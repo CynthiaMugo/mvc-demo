@@ -9,3 +9,5 @@ Route::get('/', function () {
 use App\Http\Controllers\DramaController;
 
 Route::get('/dramas', [DramaController::class, 'index']);
+Route::get('/dramas/create', [DramaController::class, 'create']);
+Route::post('/dramas', [DramaController::class, 'store']);
