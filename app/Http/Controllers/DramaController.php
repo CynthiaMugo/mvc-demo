@@ -23,4 +23,25 @@ class DramaController extends Controller
         Drama::create($request->all()); // save to DB
         return redirect('/dramas'); // go back to list
     }
+
+    // show form to edit a drama
+    public function edit($id) {
+        $drama = Drama::findOrFail($id);
+        return view('dramas.edit', compact('drama'));
+    }
+
+    public function update(Request $request, $id) {
+        $drama = Drama::findOrFail($id);
+        $drama->update($request->all());
+
+        return redirect('/dramas');
+    }
+
+    // delete a drama
+    public function destroy($id) {
+        $drama = Drama::findOrFail($id);
+        $drama->delete();
+
+        return redirect('/dramas');
+    }
 }
