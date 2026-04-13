@@ -44,4 +44,14 @@ class DramaController extends Controller
 
         return redirect('/dramas');
     }
+    // toggle watched status
+
+    public function toggle($id) {
+        $drama = Drama::findOrFail($id);
+        $drama->watched = !$drama->watched; // flip true/false
+        $drama->save();
+
+        return redirect('/dramas');
+    }
+
 }

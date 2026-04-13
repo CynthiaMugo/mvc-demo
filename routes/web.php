@@ -18,3 +18,6 @@ Route::put('/dramas/{id}', [DramaController::class, 'update']);
 
 // route to delete a drama
 Route::delete('/dramas/{id}', [DramaController::class, 'destroy']);
+
+// try toggle functionality
+Route::patch('/dramas/{id}/toggle', [DramaController::class, 'toggle']);
